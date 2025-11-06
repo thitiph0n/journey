@@ -144,11 +144,14 @@ const features = [
   position: relative;
   height: 100vh;
   width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  left: 50%;
+  right: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
   padding: 0;
 }
 
@@ -156,8 +159,8 @@ const features = [
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 30%, #ff4e50 70%, #fc6c85 100%);
   animation: gradient-shift 15s ease infinite;
   background-size: 200% 200%;
@@ -280,6 +283,12 @@ const features = [
 
 /* Features Section */
 .features-section {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  left: 50%;
+  right: 50%;
   padding: 5rem 2rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
 }
@@ -377,6 +386,12 @@ const features = [
 
 /* CTA Section */
 .cta-section {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  left: 50%;
+  right: 50%;
   padding: 5rem 2rem;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4e50 100%);
   color: white;
