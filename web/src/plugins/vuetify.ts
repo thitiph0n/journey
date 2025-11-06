@@ -9,6 +9,16 @@ const vuetify = createVuetify({
   directives,
   theme: {
     defaultTheme: 'light',
+    themes: {
+      light: {
+        colors: {
+          primary: '#5B8DBE',
+          secondary: '#7BA4D9',
+          background: '#FFFFFF',
+          surface: '#FFFFFF',
+        },
+      },
+    },
   },
 })
 
