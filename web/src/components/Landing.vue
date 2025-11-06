@@ -109,12 +109,27 @@ const features = [
 /* Force full width - override Vuetify defaults */
 :deep(.v-application__wrap) {
   min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+:deep(.v-application) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+:deep(.v-container) {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
 }
 
 .full-width-app {
   width: 100vw !important;
   max-width: 100vw !important;
   overflow-x: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .full-width-main {
