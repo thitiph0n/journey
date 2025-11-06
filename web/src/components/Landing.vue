@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-main class="pa-0">
+  <v-app class="full-width-app">
+    <v-main class="full-width-main">
       <!-- Hero Section - Full Screen -->
       <div class="hero-section">
         <div class="hero-background"></div>
@@ -17,7 +17,6 @@
             วางแผนทริป จด Itinerary เก็บค่าใช้จ่าย ครบจบในที่เดียว
           </p>
           <v-btn
-            color="white"
             size="x-large"
             rounded="xl"
             class="cta-button mt-8"
@@ -58,7 +57,6 @@
           <h2 class="cta-title">พร้อมออกเดินทางแล้ว? 🎒</h2>
           <p class="cta-subtitle">เริ่มต้นวางแผนทริปในฝันของคุณวันนี้</p>
           <v-btn
-            color="primary"
             size="x-large"
             rounded="xl"
             class="cta-button-secondary mt-6"
@@ -108,15 +106,35 @@ const features = [
 </script>
 
 <style scoped>
+/* Force full width - override Vuetify defaults */
+:deep(.v-application__wrap) {
+  min-height: 100vh !important;
+}
+
+.full-width-app {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden;
+}
+
+.full-width-main {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
 /* Hero Section - Full Screen */
 .hero-section {
   position: relative;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-background {
@@ -125,7 +143,7 @@ const features = [
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 30%, #ff4e50 70%, #fc6c85 100%);
   animation: gradient-shift 15s ease infinite;
   background-size: 200% 200%;
 }
@@ -209,7 +227,6 @@ const features = [
 .cta-button {
   font-family: 'LINE Seed Sans TH', sans-serif;
   background: white !important;
-  color: #667eea !important;
   font-weight: 700;
   text-transform: none;
   letter-spacing: 0.02em;
@@ -222,8 +239,10 @@ const features = [
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
-.cta-text {
+.cta-button .cta-text {
+  color: #ff6b35 !important;
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .scroll-hint {
@@ -265,7 +284,7 @@ const features = [
   font-family: 'LINE Seed Sans TH', sans-serif;
   font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -311,8 +330,8 @@ const features = [
 
 .feature-item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
-  border-color: #667eea;
+  box-shadow: 0 12px 40px rgba(255, 107, 53, 0.3);
+  border-color: #ff6b35;
 }
 
 .feature-emoji {
@@ -344,7 +363,7 @@ const features = [
 /* CTA Section */
 .cta-section {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4e50 100%);
   color: white;
 }
 
@@ -370,12 +389,16 @@ const features = [
 
 .cta-button-secondary {
   background: white !important;
-  color: #667eea !important;
   font-family: 'LINE Seed Sans TH', sans-serif;
   font-weight: 700;
   text-transform: none;
   padding: 1.5rem 3rem !important;
   transition: all 0.3s ease;
+}
+
+.cta-button-secondary .cta-text {
+  color: #ff6b35 !important;
+  font-weight: 700;
 }
 
 .cta-button-secondary:hover {
