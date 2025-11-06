@@ -1,4 +1,4 @@
-import 'vuetify/styles'
+import 'vuetify/lib/styles/main.css'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
@@ -9,6 +9,16 @@ const vuetify = createVuetify({
   directives,
   theme: {
     defaultTheme: 'light',
+    themes: {
+      light: {
+        colors: {
+          primary: '#5B8DBE',
+          secondary: '#7BA4D9',
+          background: '#FFFFFF',
+          surface: '#FFFFFF',
+        },
+      },
+    },
   },
 })
 
