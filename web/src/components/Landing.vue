@@ -125,8 +125,8 @@ const features = [
 }
 
 .full-width-app {
-  width: 100vw !important;
-  max-width: 100vw !important;
+  width: 100% !important;
+  max-width: 100% !important;
   overflow-x: hidden;
   margin: 0 !important;
   padding: 0 !important;
@@ -135,30 +135,30 @@ const features = [
 .full-width-main {
   padding: 0 !important;
   margin: 0 !important;
-  width: 100vw !important;
-  max-width: 100vw !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 /* Hero Section - Full Screen */
 .hero-section {
   position: relative;
   height: 100vh;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  left: 50%;
-  right: 50%;
+  min-height: 100vh;
+  width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  margin: 0;
 }
 
 .hero-background {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 30%, #ff4e50 70%, #fc6c85 100%);
@@ -284,12 +284,9 @@ const features = [
 /* Features Section */
 .features-section {
   position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  left: 50%;
-  right: 50%;
+  width: 100%;
   padding: 5rem 2rem;
+  margin: 0;
   background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
 }
 
@@ -387,12 +384,9 @@ const features = [
 /* CTA Section */
 .cta-section {
   position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  left: 50%;
-  right: 50%;
+  width: 100%;
   padding: 5rem 2rem;
+  margin: 0;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4e50 100%);
   color: white;
 }

@@ -8,6 +8,12 @@ import Landing from '@/components/Landing.vue'
 
 <style>
 /* Global reset for full width */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0 !important;
   padding: 0 !important;
@@ -23,7 +29,7 @@ body {
 #app {
   margin: 0 !important;
   padding: 0 !important;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
 }
 </style>
