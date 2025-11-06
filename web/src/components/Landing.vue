@@ -1,68 +1,73 @@
 <template>
   <v-app>
-    <v-main>
-      <v-container fluid class="pa-0">
-        <!-- Hero Section -->
-        <v-row class="hero-section" align="center" justify="center">
-          <v-col cols="12" md="8" lg="6" class="text-center">
-            <h1 class="hero-title mb-4">
-              <span class="thai-name">เจอนี่</span>
-              <span class="english-name">Journey</span>
-            </h1>
-            <p class="hero-subtitle mb-8">
-              Your travel companion for planning trips and tracking expenses
-            </p>
-            <v-btn
-              color="primary"
-              size="large"
-              rounded="pill"
-              class="cta-button px-10"
-              elevation="0"
-            >
-              Get Started
-            </v-btn>
-          </v-col>
-        </v-row>
-
-        <!-- Features Section -->
-        <v-row class="features-section py-12">
-          <v-col cols="12" class="text-center mb-8">
-            <h2 class="section-title">Features</h2>
-          </v-col>
-          
-          <v-col
-            v-for="feature in features"
-            :key="feature.title"
-            cols="12"
-            sm="6"
-            md="4"
+    <v-main class="pa-0">
+      <!-- Hero Section - Full Screen -->
+      <div class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+          <div class="emoji-float">✈️</div>
+          <h1 class="hero-title">
+            <span class="thai-name">เจอนี่</span>
+            <span class="english-name">Journey</span>
+          </h1>
+          <p class="hero-subtitle">
+            ไปเที่ยวไหนมา? เก็บทริปสวยๆ ไว้ที่นี่เลย! 🌏✨
+          </p>
+          <p class="hero-description">
+            วางแผนทริป จด Itinerary เก็บค่าใช้จ่าย ครบจบในที่เดียว
+          </p>
+          <v-btn
+            color="white"
+            size="x-large"
+            rounded="xl"
+            class="cta-button mt-8"
+            elevation="8"
           >
-            <v-card class="feature-card h-100" elevation="0">
-              <v-card-text class="text-center pa-6">
-                <v-icon
-                  :icon="feature.icon"
-                  size="48"
-                  color="primary"
-                  class="mb-3"
-                ></v-icon>
-                <h3 class="feature-title mb-2">{{ feature.title }}</h3>
-                <p class="feature-description">{{ feature.description }}</p>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
+            <span class="cta-text">เริ่มใช้งานเลย! 🚀</span>
+          </v-btn>
+          <div class="scroll-hint">
+            <v-icon color="white" size="32" class="bounce">mdi-chevron-down</v-icon>
+          </div>
+        </div>
+      </div>
 
-        <!-- Footer -->
-        <v-footer class="footer-section">
-          <v-row justify="center">
-            <v-col cols="12" class="text-center">
-              <p class="footer-text">
-                © 2025 เจอนี่ (Journey) - Your Travel Companion
-              </p>
-            </v-col>
-          </v-row>
-        </v-footer>
-      </v-container>
+      <!-- Features Section -->
+      <div class="features-section">
+        <div class="section-header">
+          <h2 class="section-title">ทำอะไรได้บ้าง? 🎯</h2>
+          <p class="section-subtitle">ฟีเจอร์เด็ดที่จะทำให้การเที่ยวของคุณง่ายขึ้น</p>
+        </div>
+
+        <div class="features-grid">
+          <div
+            v-for="(feature, index) in features"
+            :key="feature.title"
+            class="feature-item"
+            :style="{ animationDelay: `${index * 0.1}s` }"
+          >
+            <div class="feature-emoji">{{ feature.emoji }}</div>
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-description">{{ feature.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2 class="cta-title">พร้อมออกเดินทางแล้ว? 🎒</h2>
+          <p class="cta-subtitle">เริ่มต้นวางแผนทริปในฝันของคุณวันนี้</p>
+          <v-btn
+            color="primary"
+            size="x-large"
+            rounded="xl"
+            class="cta-button-secondary mt-6"
+            elevation="0"
+          >
+            <span class="cta-text">Let's Go! 🌟</span>
+          </v-btn>
+        </div>
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -70,150 +75,328 @@
 <script setup lang="ts">
 const features = [
   {
-    title: 'Trip Planning',
-    description: 'Organize your journeys with ease and keep all details in one place',
-    icon: 'mdi-map-marker-path'
+    emoji: '🗺️',
+    title: 'วางแผนทริป',
+    description: 'จัดทริปง่ายๆ เก็บรายละเอียดไว้ที่เดียว ไม่พลาด!'
   },
   {
-    title: 'Expense Tracking',
-    description: 'Track your spending with categories and receipts',
-    icon: 'mdi-currency-usd'
+    emoji: '💰',
+    title: 'เก็บค่าใช้จ่าย',
+    description: 'จดรายรับรายจ่าย แนบใบเสร็จ รู้เลยว่าเงินหายไปไหน'
   },
   {
-    title: 'Itinerary',
-    description: 'Plan your day-by-day activities and never miss a thing',
-    icon: 'mdi-calendar-check'
+    emoji: '📅',
+    title: 'จัด Itinerary',
+    description: 'วางแผนแต่ละวัน ไปไหน กินอะไร ไม่งง ไม่หลง'
   },
   {
-    title: 'Transport Info',
-    description: 'Keep track of flights, trains, and all your bookings',
-    icon: 'mdi-airplane'
+    emoji: '✈️',
+    title: 'ข้อมูลเดินทาง',
+    description: 'เก็บตั๋วเครื่องบิน รถไฟ booking ต่างๆ ไว้ที่นี่'
   },
   {
-    title: 'AI Assistant',
-    description: 'Get smart suggestions for your trips and expense insights',
-    icon: 'mdi-robot'
+    emoji: '🤖',
+    title: 'AI ช่วยแนะนำ',
+    description: 'ให้ AI แนะนำแพลน วิเคราะห์ค่าใช้จ่าย ฉลาดกว่าเดิม'
   },
   {
-    title: 'Collaborate',
-    description: 'Share trips with friends and family for group planning',
-    icon: 'mdi-account-group'
+    emoji: '👥',
+    title: 'แชร์กับเพื่อน',
+    description: 'วางแพลนกับเพื่อนๆ ครอบครัว ไปด้วยกันสนุกกว่า!'
   }
 ]
 </script>
 
 <style scoped>
+/* Hero Section - Full Screen */
 .hero-section {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #6B9BD1 0%, #8BB4DD 100%);
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  animation: gradient-shift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
   color: white;
   padding: 2rem;
+  max-width: 800px;
+  animation: fade-in-up 1s ease-out;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.emoji-float {
+  font-size: 4rem;
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 .hero-title {
   font-family: 'LINE Seed Sans TH', sans-serif;
-  font-size: clamp(2rem, 8vw, 4rem);
-  font-weight: 700;
-  line-height: 1.3;
+  margin-bottom: 2rem;
 }
 
 .thai-name {
   display: block;
-  font-size: 1.2em;
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 800;
   letter-spacing: 0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.5rem;
 }
 
 .english-name {
   display: block;
-  font-size: 0.7em;
-  font-weight: 400;
-  margin-top: 0.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
   opacity: 0.95;
-  letter-spacing: 0.05em;
 }
 
 .hero-subtitle {
   font-family: 'LINE Seed Sans TH', sans-serif;
-  font-size: clamp(1rem, 3vw, 1.15rem);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-description {
+  font-family: 'LINE Seed Sans TH', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 400;
   opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
   line-height: 1.6;
 }
 
 .cta-button {
   font-family: 'LINE Seed Sans TH', sans-serif;
+  background: white !important;
+  color: #667eea !important;
   font-weight: 700;
   text-transform: none;
   letter-spacing: 0.02em;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem 3rem !important;
+  transition: all 0.3s ease;
 }
 
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Features Section */
 .features-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
-  background-color: #FAFBFC;
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fade-in 1s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .section-title {
   font-family: 'LINE Seed Sans TH', sans-serif;
-  font-size: clamp(1.75rem, 5vw, 2.25rem);
-  font-weight: 700;
-  color: #2C3E50;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
 }
 
-.feature-card {
-  background-color: white;
-  border: 1px solid #E8EEF3;
-  border-radius: 16px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 100%;
+.section-subtitle {
+  font-family: 'LINE Seed Sans TH', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: #6B7C8E;
+  font-weight: 400;
 }
 
-.feature-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(91, 141, 190, 0.15) !important;
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  animation: slide-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.feature-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-emoji {
+  transform: scale(1.2) rotate(10deg);
 }
 
 .feature-title {
   font-family: 'LINE Seed Sans TH', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #2C3E50;
+  margin-bottom: 0.75rem;
 }
 
 .feature-description {
   font-family: 'LINE Seed Sans TH', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #5A6C7D;
+  font-size: 1rem;
+  color: #6B7C8E;
   line-height: 1.6;
 }
 
-.footer-section {
-  background-color: #F5F7FA;
-  padding: 2rem 1rem;
-  margin-top: 4rem;
+/* CTA Section */
+.cta-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
 }
 
-.footer-text {
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
   font-family: 'LINE Seed Sans TH', sans-serif;
-  color: #6B7C8E;
-  font-size: 0.85rem;
-  font-weight: 400;
-  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
-/* Responsive adjustments */
+.cta-subtitle {
+  font-family: 'LINE Seed Sans TH', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-button-secondary {
+  background: white !important;
+  color: #667eea !important;
+  font-family: 'LINE Seed Sans TH', sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  padding: 1.5rem 3rem !important;
+  transition: all 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   .hero-section {
-    min-height: 80vh;
+    height: 100vh;
   }
-  
-  .features-section {
-    padding: 2rem 1rem;
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .features-section,
+  .cta-section {
+    padding: 3rem 1.5rem;
   }
 }
 </style>
